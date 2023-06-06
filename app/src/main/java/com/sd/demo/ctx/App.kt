@@ -11,6 +11,7 @@ class App : Application() {
             Application onCreate
             Application:$this
             context:$fContext
+            equals:${this === fContext}
             appName:${Constant.APP_NAME}
         """.trimIndent()
         }
