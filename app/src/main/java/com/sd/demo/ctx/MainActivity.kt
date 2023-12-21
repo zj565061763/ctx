@@ -9,27 +9,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        logMsg { "onCreate last activity $fLastActivity" }
+        logMsg { "onCreate last activity:$fLastActivity" }
     }
 
     override fun onStart() {
         super.onStart()
-        logMsg { "onStart last activity $fLastActivity" }
+        logMsg { "onStart last activity:$fLastActivity" }
     }
 
     override fun onResume() {
         super.onResume()
-        logMsg { "onResume last activity $fLastActivity" }
+        logMsg { "onResume last activity:$fLastActivity" }
     }
 
     override fun onPause() {
         super.onPause()
-        logMsg { "onPause last activity $fLastActivity" }
+        logMsg { "onPause last activity:$fLastActivity" }
     }
 
     override fun onStop() {
         super.onStop()
-        logMsg { "onStop last activity $fLastActivity" }
+        logMsg { "onStop last activity:$fLastActivity" }
     }
 }
 
