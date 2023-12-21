@@ -32,16 +32,12 @@ object FLastActivity {
         override fun onActivityResumed(activity: Activity) {}
 
         override fun onActivityPaused(activity: Activity) {
-            if (_lastActivity === activity && activity.isFinishing) {
-                _lastActivity = null
-            }
-        }
-
-        override fun onActivityStopped(activity: Activity) {
             if (_lastActivity === activity) {
                 _lastActivity = null
             }
         }
+
+        override fun onActivityStopped(activity: Activity) {}
 
         override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
 
