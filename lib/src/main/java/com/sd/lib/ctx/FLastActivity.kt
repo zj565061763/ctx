@@ -23,11 +23,11 @@ object FLastActivity {
     fun get(): Activity? = _lastActivity
 
     private val _callback = object : Application.ActivityLifecycleCallbacks {
-        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
-
-        override fun onActivityStarted(activity: Activity) {
+        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
             _lastActivity = activity
         }
+
+        override fun onActivityStarted(activity: Activity) {}
 
         override fun onActivityResumed(activity: Activity) {}
 
