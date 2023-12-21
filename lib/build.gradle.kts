@@ -31,6 +31,7 @@ kotlin {
 }
 
 dependencies {
+    api(libs.androidx.startup)
 }
 
 publishing {
