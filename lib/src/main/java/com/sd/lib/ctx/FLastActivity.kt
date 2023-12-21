@@ -25,11 +25,11 @@ object FLastActivity {
     private val _callback = object : Application.ActivityLifecycleCallbacks {
         override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
 
-        override fun onActivityStarted(activity: Activity) {}
-
-        override fun onActivityResumed(activity: Activity) {
+        override fun onActivityStarted(activity: Activity) {
             _lastActivity = activity
         }
+
+        override fun onActivityResumed(activity: Activity) {}
 
         override fun onActivityPaused(activity: Activity) {
             if (_lastActivity === activity && activity.isFinishing) {
