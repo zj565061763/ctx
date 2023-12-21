@@ -6,6 +6,7 @@ import androidx.startup.Initializer
 internal class ContextInitializer : Initializer<Context> {
     override fun create(context: Context): Context {
         FContext.set(context)
+        FLastActivity.init(context)
         return context
     }
 
