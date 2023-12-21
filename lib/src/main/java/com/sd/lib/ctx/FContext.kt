@@ -6,16 +6,16 @@ import android.content.Context
 @SuppressLint("StaticFieldLeak")
 object FContext {
     @Volatile
-    private var context: Context? = null
+    private var _context: Context? = null
 
     @JvmStatic
     fun set(context: Context?) {
         if (context == null) return
-        this.context = context.applicationContext
+        _context = context.applicationContext
     }
 
     @JvmStatic
-    fun get(): Context = checkNotNull(context)
+    fun get(): Context = checkNotNull(_context)
 }
 
 val fContext: Context get() = FContext.get()
