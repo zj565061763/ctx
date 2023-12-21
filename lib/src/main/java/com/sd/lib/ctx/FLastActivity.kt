@@ -48,3 +48,5 @@ object FLastActivity {
         override fun onActivityDestroyed(activity: Activity) {}
     }
 }
+
+val fLastActivity: Activity? get() = FLastActivity.get()
