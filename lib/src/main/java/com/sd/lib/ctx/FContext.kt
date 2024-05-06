@@ -10,8 +10,9 @@ object FContext {
 
     @JvmStatic
     fun set(context: Context?) {
-        if (context == null) return
-        _context = context.applicationContext
+        context?.applicationContext?.let {
+            _context = it
+        }
     }
 
     @JvmStatic
