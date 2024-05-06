@@ -1,7 +1,9 @@
 package com.sd.lib.ctx
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 
 @SuppressLint("StaticFieldLeak")
 object FContext {
@@ -20,3 +22,13 @@ object FContext {
 }
 
 val fContext: Context get() = FContext.get()
+
+/**
+ * 查找Activity
+ */
+tailrec fun Context.fFindActivity(): Activity? =
+    when (this) {
+        is Activity -> this
+        is ContextWrapper -> baseContext.fFindActivity()
+        else -> null
+    }
