@@ -24,11 +24,16 @@ object FContext {
 val fContext: Context get() = FContext.get()
 
 /**
- * 查找Activity
+ * 优先从[Context]中查找[Activity]返回，如果找不到的话使用当前[Context]
  */
-tailrec fun Context.fFindActivity(): Activity? =
+fun Context.fPreferActivityContext(): Context = fFindActivityOrNull() ?: this
+
+/**
+ * 从[Context]中查找[Activity]，如果找不到的话返回null
+ */
+tailrec fun Context.fFindActivityOrNull(): Activity? =
     when (this) {
         is Activity -> this
-        is ContextWrapper -> baseContext.fFindActivity()
+        is ContextWrapper -> baseContext.fFindActivityOrNull()
         else -> null
     }
