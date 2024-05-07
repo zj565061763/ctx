@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import com.sd.lib.ctx.fFindActivityOrNull
+import com.sd.lib.ctx.fPreferActivityContext
 
 class ContextDialog(context: Context) : Dialog(context) {
 
@@ -15,6 +16,6 @@ class ContextDialog(context: Context) : Dialog(context) {
                 this.text = "Dialog Button"
             }
         )
-        logMsg { "Dialog context:$context activity:${context.fFindActivityOrNull()}" }
+        logMsg { "Dialog context:$context activity:${context.fFindActivityOrNull()} preferActivityContext:${context.fPreferActivityContext()}" }
     }
 }
