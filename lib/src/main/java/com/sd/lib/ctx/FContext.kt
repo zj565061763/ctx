@@ -29,6 +29,15 @@ val fContext: Context get() = FContext.get()
 fun Context.fPreferActivityContext(): Context = fFindActivityOrNull() ?: this
 
 /**
+ * 从[Context]中查找[Activity]，并调用[block]
+ */
+inline fun Context.fFindActivity(
+    block: (Activity) -> Unit,
+) {
+    fFindActivityOrNull()?.let(block)
+}
+
+/**
  * 从[Context]中查找[Activity]，如果找不到的话返回null
  */
 tailrec fun Context.fFindActivityOrNull(): Activity? =
